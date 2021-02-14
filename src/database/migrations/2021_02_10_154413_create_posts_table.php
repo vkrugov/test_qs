@@ -18,8 +18,8 @@ class CreatePostsTable extends Migration
             $table->text('title');
             $table->longText('body');
             $table->string('external_id')->unique();
-            $table->date('publication_date');
-            $table->date('parsed_at');
+            $table->dateTime('publication_date');
+            $table->dateTime('parsed_at');
             $table->timestamps();
         });
     }

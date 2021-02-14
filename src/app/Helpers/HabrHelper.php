@@ -36,7 +36,7 @@ class HabrHelper
             return static::calculateRepeat(self::DEFAULT_PERIOD, self::DEFAULT_PERIOD);
         }
 
-        return 0;
+        return static::calculateRepeat($repeatPeriod, $repeatDistance);
     }
 
     /**

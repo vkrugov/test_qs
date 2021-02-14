@@ -3,7 +3,7 @@
 namespace App\Repositories\Post;
 
 use App\Models\Post;
-use Illuminate\Pagination\Paginator;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Spatie\QueryBuilder\QueryBuilder;
 
 class PostRepository implements PostRepositoryInterface
@@ -12,12 +12,15 @@ class PostRepository implements PostRepositoryInterface
 
     /**
      * @param int|null $limit
-     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator|Paginator
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function all(?int $limit): Paginator
+    public function all(?int $limit): LengthAwarePaginator
     {
         return QueryBuilder::for(Post::class)
             ->defaultSort('-publication_date')
+            ->allowedFilters([
+                'title'
+            ])
             ->allowedSorts([
                 'publication_date'
             ])

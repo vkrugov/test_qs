@@ -47,8 +47,8 @@ class Post extends Model
      * @var array
      */
     protected $casts = [
-        'publication_date' => 'date',
-        'parsed_at' => 'date',
+        'publication_date' => 'datetime',
+        'parsed_at' => 'datetime',
     ];
 
     /**

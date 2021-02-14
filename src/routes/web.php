@@ -13,7 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function() {
-    HabrParser::parsePosts();
-    return view('welcome');
-});
+Route::get('/{any}', [\App\Http\Controllers\SpaController::class, 'index'])->where('any', '.*');

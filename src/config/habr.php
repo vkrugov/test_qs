@@ -2,6 +2,6 @@
 
 return [
     'uri' => 'https://habrahabr.ru',
-    'repeat_period' =>  env('REPEAT_PERIOD', 0),
-    'repeat_distance' =>  env('REPEAT_DISTANCE', 1),
+    'repeat_period' =>  env('REPEAT_PERIOD_NAME', 'hour'),
+    'repeat_distance' =>  env('REPEAT_PERIOD_DISTANCE', 1),
 ];

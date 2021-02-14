@@ -21,12 +21,13 @@ class Kernel extends ConsoleKernel
     /**
      * Define the application's command schedule.
      *
-     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
+     * @param \Illuminate\Console\Scheduling\Schedule $schedule
      * @return void
      */
     protected function schedule(Schedule $schedule)
     {
-         $schedule->job(new HabrParse())->spliceIntoPosition(HabrHelper::getParseTime() , 0);
+        $schedule->job(new HabrParse())->spliceIntoPosition(1, 0)
+            ->spliceIntoPosition(2, '*/' . HabrHelper::getParseTime());
     }
 
     /**
@@ -36,7 +37,7 @@ class Kernel extends ConsoleKernel
      */
     protected function commands()
     {
-        $this->load(__DIR__.'/Commands');
+        $this->load(__DIR__ . '/Commands');
 
         require base_path('routes/console.php');
     }

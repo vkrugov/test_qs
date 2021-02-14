@@ -3,15 +3,15 @@
 namespace App\Repositories\Post;
 
 use App\Models\Post;
-use Illuminate\Pagination\Paginator;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 interface PostRepositoryInterface
 {
     /**
      * @param int|null $limit
-     * @return Paginator
+     * @return LengthAwarePaginator
      */
-    public function all(?int $limit): Paginator;
+    public function all(?int $limit): LengthAwarePaginator;
 
     /**
      * @param array $attributes
